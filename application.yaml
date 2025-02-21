@@ -14,10 +14,13 @@ spec:
     server: https://kubernetes.default.svc
     namespace: myapp
 
+# this would create automatically create ns that doesn't exists like 'myapp'
   syncPolicy:
     syncOptions:
     - CreateNamespace=true
 
+# automatically sync app
     automated:
       selfHeal: true
       prune: true
+# prune true delete resources in the cluster if they are deleted in argocd
